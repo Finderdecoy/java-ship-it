@@ -5,17 +5,17 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class DeliveryAppTest {
+public class CalculatedCostTest {
     private static StandardParcel standardParcel;
     private static FragileParcel fragileParcel;
     private static PerishableParcel perishableParcel;
-    private static ParcelBox<StandardParcel> standartBox;
-
+    private static StandardParcel parcel0Kg;
     @BeforeAll
     static void beforeAll() {
         standardParcel = new StandardParcel("Посылка1", 20, "Адрес1", 1);
         fragileParcel = new FragileParcel("Посылка2", 20, "Адрес3", 3);
         perishableParcel = new PerishableParcel("Посылка3", 20, "Адрес5", 5, 2);
+        parcel0Kg = new StandardParcel("Посылка4", 0, "Адрес1", 1);
     }
 
     @Test
@@ -34,28 +34,8 @@ public class DeliveryAppTest {
     }
 
     @Test
-    public void shouldReturnFalseWhenParcelIsExpired() {
-        assertFalse(perishableParcel.isExpired(7));
+    public void shouldBe0DeliveryCostForPerishableParcelWhenWeigh0Kg() {
+        assertEquals(0, parcel0Kg.calculateDeliveryCost(), 0);
     }
-
-    @Test
-    public void shouldReturnTrueWhenParcelIsNOTExpired() {
-        assertTrue(perishableParcel.isExpired(8));
-    }
-
-    @Test
-    public void shouldBeNullIfBoxWeightMoreExpected() {
-        standartBox = new ParcelBox<>(19);
-        standartBox.addParcel(standardParcel);
-        assertNull(standartBox.getParcel());
-    }
-
-    @Test
-    public void shouldBeNotNullIfBoxWeightMoreExpected() {
-        standartBox = new ParcelBox<>(20);
-        standartBox.addParcel(standardParcel);
-        assertEquals(standardParcel,standartBox.getParcel());
-    }
-
 
 }
