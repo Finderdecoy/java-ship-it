@@ -11,8 +11,8 @@ public class DeliveryApp {
     private static List<FragileParcel> fragileParcels = new ArrayList<>();
 
     public static void main(String[] args) {
-        allParcels.add(new StandardParcel("Посылка1", 11, "Адрес1", 1));
-        allParcels.add(new StandardParcel("Посылка2", 11, "Адрес2", 2));
+        allParcels.add(new StandardParcel("Посылка1", 10, "Адрес1", 1));
+        allParcels.add(new StandardParcel("Посылка2", 10, "Адрес2", 2));
         fragileParcels.add(new FragileParcel("Посылка3", 11, "Адрес3", 3));
         fragileParcels.add(new FragileParcel("Посылка4", 11, "Адрес4", 4));
         allParcels.add(new PerishableParcel("Посылка15", 11, "Адрес5", 5, 2));
@@ -104,6 +104,9 @@ public class DeliveryApp {
         double sum = 0;
         for (Parcel parcel : allParcels) {
             sum += parcel.calculateDeliveryCost();
+        }
+        for (FragileParcel fragileParcel : fragileParcels) {
+            sum += fragileParcel.calculateDeliveryCost();
         }
         System.out.println("Стоимость всех посылок = " + sum);
     }

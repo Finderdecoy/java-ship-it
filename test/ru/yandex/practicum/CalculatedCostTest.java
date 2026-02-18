@@ -10,6 +10,7 @@ public class CalculatedCostTest {
     private static FragileParcel fragileParcel;
     private static PerishableParcel perishableParcel;
     private static StandardParcel parcel0Kg;
+
     @BeforeAll
     static void beforeAll() {
         standardParcel = new StandardParcel("Посылка1", 20, "Адрес1", 1);

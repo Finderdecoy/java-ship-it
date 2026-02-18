@@ -26,7 +26,7 @@ public abstract class Parcel {
         return weight * baseCost();
     }
 
-    public double baseCost(){
+    public double baseCost() {
         return baseCost;
     }
 

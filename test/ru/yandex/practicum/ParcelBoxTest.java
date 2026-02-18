@@ -28,7 +28,7 @@ public class ParcelBoxTest {
     @Test
     public void shouldReturnEmptyList() {
         standartBox.addParcel(parcel3);
-        assertEquals(testParcel,standartBox.getParcel());
+        assertEquals(testParcel, standartBox.getParcel());
     }
 
     @Test
@@ -39,7 +39,7 @@ public class ParcelBoxTest {
     }
 
     @Test
-    public void shouldReturnListWithParcel2(){
+    public void shouldReturnListWithParcel2() {
         standartBox.addParcel(parcel2);
         testParcel.add(parcel2);
         assertEquals(testParcel, standartBox.getParcel());
