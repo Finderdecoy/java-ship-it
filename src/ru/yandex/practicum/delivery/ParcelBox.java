@@ -12,20 +12,16 @@ public class ParcelBox<T extends Parcel> {
     }
 
     public void addParcel(T parcel) {
-        weightBox += parcel.weight;
-        if (weightBox <= maxWeight) {
+        if (weightBox + parcel.weight <= maxWeight) {
+            weightBox += parcel.weight;
             parcelBox.add(parcel);
         } else {
             System.out.println("Коробка переполнена , посылка :\n" + "<<" + parcel + ">>" + "\n не была упакована в коробку");
-            weightBox -= parcel.weight;
         }
     }
 
-    public T getParcel(){
-        for (T box : parcelBox) {
-            return box;
-        }
-        return null;
+    public ArrayList<T> getParcel() {
+        return parcelBox;
     }
 
 }
