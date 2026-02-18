@@ -1,13 +1,10 @@
 package ru.yandex.practicum.delivery;
+
 public class StandardParcel extends Parcel {
 
     public StandardParcel(String description, double weight, String deliveryAddress, int sendDay) {
         super(description, weight, deliveryAddress, sendDay);
-    }
-
-    @Override
-    public double baseCost() {
-        return BASE_COST;
+        this.baseCost = 2;
     }
 
     @Override
