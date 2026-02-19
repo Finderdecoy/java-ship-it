@@ -5,7 +5,6 @@ public abstract class Parcel {
     protected double weight;
     protected String deliveryAddress;
     protected int sendDay;
-    protected double baseCost;
 
     public Parcel(String description, double weight, String deliveryAddress, int sendDay) {
         this.description = description;
@@ -26,9 +25,7 @@ public abstract class Parcel {
         return weight * baseCost();
     }
 
-    public double baseCost() {
-        return baseCost;
-    }
+    public abstract double baseCost();
 
     @Override
     public String toString() {
